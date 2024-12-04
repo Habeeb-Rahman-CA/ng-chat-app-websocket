@@ -1,0 +1,17 @@
+<div class="max-w-lg mt-8 mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <h1 class="text-2xl font-semibold text-center text-blue-500">Chat Application</h1>
+    <div class="mt-4 space-y-4 h-64 overflow-y-auto">
+        <div *ngFor="let msg of messages" class="flex flex-col space-y-2">
+            <div class="p-2 bg-gray-100 rounded-lg">
+                <span class="text-gray-800">{{ msg.content}}</span>
+                <small class="text-xs text-gray-500">{{ msg.timestamp| date:'short' }}</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 flex">
+        <input [(ngModel)]="message" class="w-full p-2 border border-gray-300 rounded-l-lg"
+            placeholder="Type your message" />
+        <button (click)="sendMessage()" class="px-4 py-2 bg-blue-500 text-white rounded-r-lg">Send</button>
+    </div>
+</div>
